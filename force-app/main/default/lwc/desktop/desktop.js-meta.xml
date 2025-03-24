@@ -5,5 +5,6 @@
     <masterLabel>Salesforce 95 Desktop</masterLabel>
     <targets>
         <target>lightning__AppPage</target>
+        <target>lightning__Tab</target>
     </targets>
 </LightningComponentBundle>

@@ -1,0 +1,101 @@
+.desktop {
+  left: 0px;
+  right: 0px;
+  top: 0px;
+  bottom: 0px;
+  position: absolute;
+  background-color: #009292;
+  z-index: 0;
+}
+
+.taskbar-container {
+  bottom: 0px;
+  left: 0px;
+  right: 0px;
+  position: absolute;
+  border-top: 1px solid #eee;
+  width: 100%;
+  z-index: 1;
+}
+
+.taskbar {
+  border-top: 1px solid #fff;
+  background-color: #ccc;
+  padding: 2px 3px 3px 3px;
+}
+
+.start-button-container {
+  width: 72px;
+  cursor: pointer;
+  border-top: 2px solid #fff;
+  border-left: 2px solid #fff;
+  border-bottom: 2px solid #000;
+  border-right: 2px solid #000;
+  margin-top: 1px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.start-button {
+  padding: 2px;
+  border-top: 1px solid #e6e6e6;
+  border-left: 1px solid #e6e6e6;
+  border-bottom: 1px solid #939393;
+  border-right: 1px solid #939393;
+}
+
+.start-button-container.active {
+  border-top: 3px solid #000;
+  border-left: 2px solid #000;
+  border-bottom: 2px solid #fff;
+  border-right: 2px solid #fff;
+  margin-top: 0px;
+}
+
+.start-button.active {
+  padding: 2px;
+  border-top: 1px solid #939393;
+  border-left: 1px solid #939393;
+  border-bottom: 1px solid #e6e6e6;
+  border-right: 1px solid #e6e6e6;
+}
+
+.start-button-content {
+  border: 1px solid rgba(0,0,0,0);
+}
+
+.start-button-content.active {
+  border: 1px dotted #000;
+}
+
+.start-text {
+  font-weight: bold;
+}
+
+.start-logo {
+  height: 11px;
+  width: 11px;
+}
+
+.start-menu-container {
+  z-index: -1;
+  display: none;
+  border-bottom: 2px solid #000;
+  border-right: 2px solid #000;
+  background-color: #ccc;
+  bottom: 34px;
+  left: 3px;
+  position: absolute;
+}
+
+.start-menu-container.active {
+  display: block;
+  z-index: 2;
+}
+
+.start-menu {
+  padding: 10px;
+  color: #fff;
+}
