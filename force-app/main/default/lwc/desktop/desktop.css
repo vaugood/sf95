@@ -97,8 +97,26 @@
   z-index: 2;
 }
 
+.start-menu-container {
+  z-index: -1;
+  display: none;
+  border-bottom: 1px solid #000;
+  border-right: 1px solid #000;
+  border-top: 1px solid #e6e6e6;
+  border-left: 1px solid #e6e6e6;
+  background-color: #ccc;
+  bottom: 34px;
+  left: 3px;
+  position: absolute;
+}
+
+.start-menu-container.active {
+  display: block;
+  z-index: 2;
+}
+
 .start-menu-inner-container {
-  padding: 2px;
+
   border-top: 1px solid #fff;
   border-left: 1px solid #fff;
   border-bottom: 1px solid #939393;
@@ -108,24 +126,44 @@
 .start-menu {
   background-color: #ccc;
   border: 1px solid #ccc;
-  padding-left: 3px;
   color: #fff;
   display: flex;
   flex-direction: row;
-  height: 240px;
-  max-height: 240px;
+  height: 360px;
+  max-height: 360px;
 }
 
 .vertical-banner {
-  transform: rotate(270deg);
   background-color: #939393;
-  height: 22px;
-  width: 229px;
-  margin-left: -112px;
-  margin-top: 106px;
-  margin-right: -108px;
-  padding: 2px 4px 4px 10px;
+  height: 358px;
+  width: 30px;
+}
+
+.vertical-banner-text {
+  position: absolute;
+  bottom: 0px;
+  margin-bottom: -24px;
+  margin-left: -3px;
+  transform-origin: top left;
+  transform: rotate(-90deg);
   font-size: 24px;
+  font-family: BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-sans;
+  white-space: nowrap;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.vertical-banner-text-bold {
+  font-weight: 900;
+  color: #ccc;
+}
+
+.vertical-banner-text-light {
+  font-weight: 100;
+  color: #fff;
+  text-shadow: 0px 0px 1px #ccc;
 }
 
 .menu-items {
