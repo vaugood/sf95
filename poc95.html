@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang='en'>
+
+<head>
+    <meta charset='UTF-8'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+    <title>Windows 95 Desktop Simulation</title>
+    <script>
+        function toggleStartButton() {
+            const startMenuCnt = document.querySelector('.start-menu-container');
+            const startCnt = document.querySelector('.start-button-container');
+            const startBtn = document.querySelector('.start-button');
+            const startBtnCnt = document.querySelector('.start-button-content');
+            startMenuCnt.classList.toggle('active');
+            startCnt.classList.toggle('active');
+            startBtn.classList.toggle('active');
+            startBtnCnt.classList.toggle('active');
+        }
+
+        windivTemplate = "<div id='windiv'><div class='windiv-inner-container'><div id='windiv-header'>Leads<div class='closeWindiv' onclick='closeWindiv()'>x</div></div><p> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum augue purus, euismod sit amet sollicitudin et, efficitur at orci. Ut lobortis tortor vitae mauris convallis pretium. In sit amet nisi libero. Integer rutrum mollis sapien eu eleifend. Aenean in dolor sit amet ante consequat gravida id ac velit. Nullam euismod mollis purus, at ultrices mi interdum eu. Sed accumsan interdum nulla vitae luctus. Sed scelerisque lectus erat, nec elementum nisi volutpat id. Nunc euismod arcu eleifend feugiat mollis. Nullam a porta libero. Fusce maximus purus risus, sit amet suscipit turpis volutpat sit amet. Proin luctus, risus nec dapibus vestibulum, massa erat venenatis risus, at sodales lectus augue ac velit.</p></div></div>"
+
+        function initializeWindiv() {
+            console.log("asdf")
+            document.getElementById("windivOrigin").innerHTML = windivTemplate;
+            toggleStartButton();
+            dragElement(document.getElementById("windiv"));
+        }
+
+        function closeWindiv() {
+            document.getElementById("windivOrigin").innerHTML ="";
+        }
+
+        function dragElement(elmnt) {
+            var pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
+            if (document.getElementById(elmnt.id + "-header")) {
+                document.getElementById(elmnt.id + "-header").onmousedown = dragMouseDown;
+            } else {
+                elmnt.onmousedown = dragMouseDown;
+            }
+
+            function dragMouseDown(e) {
+                e = e || window.event;
+                e.preventDefault();
+                pos3 = e.clientX;
+                pos4 = e.clientY;
+                document.onmouseup = closeDragElement;
+                document.onmousemove = elementDrag;
+            }
+
+            function elementDrag(e) {
+                e = e || window.event;
+                e.preventDefault();
+                pos1 = pos3 - e.clientX;
+                pos2 = pos4 - e.clientY;
+                pos3 = e.clientX;
+                pos4 = e.clientY;
+                elmnt.style.top = (elmnt.offsetTop - pos2) + "px";
+                elmnt.style.left = (elmnt.offsetLeft - pos1) + "px";
+            }
+
+            function closeDragElement() {
+                document.onmouseup = null;
+                document.onmousemove = null;
+            }
+        }
+    </script>
+    <style>
+        .desktop {
+            left: 0px;
+            right: 0px;
+            top: 0px;
+            bottom: 0px;
+            position: absolute;
+            background-color: #009292;
+            z-index: 0;
+            overflow: hidden;
+        }
+
+        .taskbar-container {
+            bottom: 0px;
+            left: 0px;
+            right: 0px;
+            position: absolute;
+            border-top: 1px solid #eee;
+            width: 100%;
+            z-index: 1;
+        }
+
+        .taskbar {
+            border-top: 1px solid #fff;
+            background-color: #ccc;
+            padding: 2px 3px 3px 3px;
+        }
+
+        .start-button-container {
+            width: 72px;
+            border-top: 2px solid #fff;
+            border-left: 2px solid #fff;
+            border-bottom: 2px solid #000;
+            border-right: 2px solid #000;
+            margin-top: 1px;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+        }
+
+        .start-button {
+            padding: 2px;
+            border-top: 1px solid #e6e6e6;
+            border-left: 1px solid #e6e6e6;
+            border-bottom: 1px solid #939393;
+            border-right: 1px solid #939393;
+        }
+
+        .start-button-container.active {
+            border-top: 3px solid #000;
+            border-left: 2px solid #000;
+            border-bottom: 2px solid #fff;
+            border-right: 2px solid #fff;
+            margin-top: 0px;
+        }
+
+        .start-button.active {
+            padding: 2px;
+            border-top: 1px solid #939393;
+            border-left: 1px solid #939393;
+            border-bottom: 1px solid #e6e6e6;
+            border-right: 1px solid #e6e6e6;
+        }
+
+        .start-button-content {
+            border: 1px solid rgba(0, 0, 0, 0);
+        }
+
+        .start-button-content.active {
+            border: 1px dotted #000;
+        }
+
+        .start-text {
+            font-weight: bold;
+        }
+
+        .start-logo {
+            height: 11px;
+            width: 11px;
+        }
+
+        .start-menu-container {
+            z-index: -1;
+            display: none;
+            border-bottom: 1px solid #000;
+            border-right: 1px solid #000;
+            border-top: 1px solid #e6e6e6;
+            border-left: 1px solid #e6e6e6;
+            background-color: #ccc;
+            bottom: 34px;
+            left: 3px;
+            position: absolute;
+        }
+
+        .start-menu-container.active {
+            display: block;
+            z-index: 2;
+        }
+
+        .start-menu-inner-container {
+            border-top: 1px solid #fff;
+            border-left: 1px solid #fff;
+            border-bottom: 1px solid #939393;
+            border-right: 1px solid #939393;
+        }
+
+        .start-menu {
+            background-color: #ccc;
+            border: 1px solid #ccc;
+            color: #fff;
+            display: flex;
+            flex-direction: row;
+            height: 360px;
+            max-height: 360px;
+        }
+
+        .vertical-banner {
+            background-color: #939393;
+            height: 360px;
+            width: 30px;
+        }
+
+        .vertical-banner-text {
+            position: absolute;
+            bottom: 0px;
+            margin-bottom: -24px;
+            transform-origin: top left;
+            transform: rotate(-90deg);
+            font-size: 24px;
+            font-family: BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-sans;
+            white-space: nowrap;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+        }
+
+        .vertical-banner-text-bold {
+            font-weight: 900;
+            color: #ccc;
+        }
+
+        .vertical-banner-text-light {
+            font-weight: 100;
+            color: #fff;
+            text-shadow: 0px 0px 1px #ccc;
+        }
+
+        .menu-items {
+            padding: 2px 6px 2px 6px;
+        }
+
+        .menu-item {
+            margin: 6px;
+            color: #000;
+            font-family: Helvetica, sans-serif;
+            font-weight: lighter;
+            font-size: smaller;
+        }
+
+        .windiv-inner-container {
+            border-top: 1px solid #fff;
+            border-left: 1px solid #fff;
+            border-bottom: 1px solid #939393;
+            border-right: 1px solid #939393;
+            width: 480px;
+            height: 480px;
+            min-width: 480px;
+            min-height: 480px;
+            white-space: wrap;
+        }
+
+        #windiv {
+            position: absolute;
+            z-index: 1;
+            white-space: nowrap;
+            border-bottom: 1px solid #000;
+            border-right: 1px solid #000;
+            border-top: 1px solid #e6e6e6;
+            border-left: 1px solid #e6e6e6;
+            background-color: #ccc;
+        }
+
+        #windiv-header {
+            padding: 6px;
+            z-index: 10;
+            background-color: #2196F3;
+            color: #fff;
+        }
+
+        .closeWindiv {
+            float: right;
+            cursor: default;
+        }
+    </style>
+</head>
+
+<body>
+    <script>
+
+    </script>
+    <div class='desktop'>
+        <div id="windivOrigin"></div>
+        <div class='start-menu-container'>
+            <div class='start-menu-inner-container'>
+                <div class='start-menu'>
+                    <div class='vertical-banner'>
+                        <div class='vertical-banner-text'><span class='vertical-banner-text-bold'>Salesƒorce
+                            </span><span class='vertical-banner-text-light'>95</span></div>
+                    </div>
+                    <div class='menu-items'>
+                        <div class='menu-item' onclick="initializeWindiv()"><span>Leads</span></div>
+                        <div class='menu-item'><span>Accounts</span></div>
+                        <div class='menu-item'><span>Contacts</span></div>
+                        <div class='menu-item'><span>Opportunities</span></div>
+                        <div class='menu-item'><span>Cases</span></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class='taskbar-container'>
+            <div class='taskbar'>
+                <div class='start-button-container' onclick='toggleStartButton()'>
+                    <div class='start-button'>
+                        <div class='start-button-content'>
+                            <img src='Salesforce-95-Logo.png' class='start-logo' />
+                            <span class='start-text'>Start</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

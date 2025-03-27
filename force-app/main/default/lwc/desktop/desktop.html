@@ -1,13 +1,15 @@
 <template>
     <div class='desktop'>
+        <div id='windivOrigin'></div>
         <div class='start-menu-container'>
             <div class='start-menu-inner-container'>
                 <div class='start-menu'>
                     <div class='vertical-banner'>
-                        <div class='vertical-banner-text'><span class='vertical-banner-text-bold'>Salesƒorce </span><span class='vertical-banner-text-light'>95</span></div>
+                        <div class='vertical-banner-text'><span class='vertical-banner-text-bold'>Salesƒorce
+                            </span><span class='vertical-banner-text-light'>95</span></div>
                     </div>
                     <div class='menu-items'>
-                        <div class='menu-item'><span>Leads</span></div>
+                        <div class='menu-item' onclick='{initializeWindiv}'><span>Leads</span></div>
                         <div class='menu-item'><span>Accounts</span></div>
                         <div class='menu-item'><span>Contacts</span></div>
                         <div class='menu-item'><span>Opportunities</span></div>
@@ -21,7 +23,7 @@
                 <div class='start-button-container' onclick='{toggleStartButton}'>
                     <div class='start-button'>
                         <div class='start-button-content'>
-                            <img src='Salesforce-95-Logo.png' class='start-logo'/>
+                            <img src='Salesforce-95-Logo.png' class='start-logo' />
                             <span class='start-text'>Start</span>
                         </div>
                     </div>
