@@ -13,6 +13,7 @@
     <label>Salesforce 95</label>
     <navType>Standard</navType>
     <tabs>Desktop</tabs>
+    <tabs>Desktop_2</tabs>
     <uiType>Lightning</uiType>
     <utilityBar>Salesforce_95_UtilityBar</utilityBar>
 </CustomApplication>
