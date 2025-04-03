@@ -15,7 +15,7 @@ export default class Desktop extends LightningElement {
     initializeWindiv() {
         console.log('asdf')
         this.template.querySelector('.windivOrigin').innerHTML = "<div class='windiv'><div class='windiv-inner-container'><div class='windiv-header'>Leads<div class='closeWindiv' onclick='closeWindiv()'>x</div></div><p> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum augue purus, euismod sit amet sollicitudin et, efficitur at orci. Ut lobortis tortor vitae mauris convallis pretium. In sit amet nisi libero. Integer rutrum mollis sapien eu eleifend. Aenean in dolor sit amet ante consequat gravida id ac velit. Nullam euismod mollis purus, at ultrices mi interdum eu. Sed accumsan interdum nulla vitae luctus. Sed scelerisque lectus erat, nec elementum nisi volutpat id. Nunc euismod arcu eleifend feugiat mollis. Nullam a porta libero. Fusce maximus purus risus, sit amet suscipit turpis volutpat sit amet. Proin luctus, risus nec dapibus vestibulum, massa erat venenatis risus, at sodales lectus augue ac velit.</p></div></div>";
-        toggleStartButton();
+        // toggleStartButton();
         dragElement(this.template.querySelector('.windiv'));
     }
 
