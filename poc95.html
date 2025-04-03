@@ -17,23 +17,23 @@
             startBtnCnt.classList.toggle('active');
         }
 
-        windivTemplate = "<div id='windiv'><div class='windiv-inner-container'><div id='windiv-header'>Leads<div class='closeWindiv' onclick='closeWindiv()'>x</div></div><p> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum augue purus, euismod sit amet sollicitudin et, efficitur at orci. Ut lobortis tortor vitae mauris convallis pretium. In sit amet nisi libero. Integer rutrum mollis sapien eu eleifend. Aenean in dolor sit amet ante consequat gravida id ac velit. Nullam euismod mollis purus, at ultrices mi interdum eu. Sed accumsan interdum nulla vitae luctus. Sed scelerisque lectus erat, nec elementum nisi volutpat id. Nunc euismod arcu eleifend feugiat mollis. Nullam a porta libero. Fusce maximus purus risus, sit amet suscipit turpis volutpat sit amet. Proin luctus, risus nec dapibus vestibulum, massa erat venenatis risus, at sodales lectus augue ac velit.</p></div></div>"
+        windivTemplate = "<div class='windiv'><div class='windiv-inner-container'><div class='windiv-header'>Leads<div class='closeWindiv' onclick='closeWindiv()'>x</div></div><p> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum augue purus, euismod sit amet sollicitudin et, efficitur at orci. Ut lobortis tortor vitae mauris convallis pretium. In sit amet nisi libero. Integer rutrum mollis sapien eu eleifend. Aenean in dolor sit amet ante consequat gravida id ac velit. Nullam euismod mollis purus, at ultrices mi interdum eu. Sed accumsan interdum nulla vitae luctus. Sed scelerisque lectus erat, nec elementum nisi volutpat id. Nunc euismod arcu eleifend feugiat mollis. Nullam a porta libero. Fusce maximus purus risus, sit amet suscipit turpis volutpat sit amet. Proin luctus, risus nec dapibus vestibulum, massa erat venenatis risus, at sodales lectus augue ac velit.</p></div></div>"
 
         function initializeWindiv() {
             console.log("asdf")
-            document.getElementById("windivOrigin").innerHTML = windivTemplate;
+            document.querySelector(".windivOrigin").innerHTML = windivTemplate;
             toggleStartButton();
-            dragElement(document.getElementById("windiv"));
+            dragElement(document.querySelector(".windiv"));
         }
 
         function closeWindiv() {
-            document.getElementById("windivOrigin").innerHTML ="";
+            document.querySelector(".windivOrigin").innerHTML ="";
         }
 
         function dragElement(elmnt) {
             var pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
-            if (document.getElementById(elmnt.id + "-header")) {
-                document.getElementById(elmnt.id + "-header").onmousedown = dragMouseDown;
+            if (document.querySelector(".windiv-header")) {
+                document.querySelector(".windiv-header").onmousedown = dragMouseDown;
             } else {
                 elmnt.onmousedown = dragMouseDown;
             }
@@ -237,7 +237,7 @@
             white-space: wrap;
         }
 
-        #windiv {
+        .windiv {
             position: absolute;
             z-index: 1;
             white-space: nowrap;
@@ -248,7 +248,7 @@
             background-color: #ccc;
         }
 
-        #windiv-header {
+        .windiv-header {
             padding: 6px;
             z-index: 10;
             background-color: #2196F3;
@@ -267,7 +267,7 @@
 
     </script>
     <div class='desktop'>
-        <div id="windivOrigin"></div>
+        <div class="windivOrigin"></div>
         <div class='start-menu-container'>
             <div class='start-menu-inner-container'>
                 <div class='start-menu'>
